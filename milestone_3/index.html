@@ -186,7 +186,7 @@
 
       <div class="card">
         <div class="h">Quick Tips</div>
-        <div class="small">1) Make sure backend is running: <code>uvicorn ivr_simulator_backend:app --reload --host 0.0.0.0 --port 8000</code></div>
+        <div class="small">1) Make sure backend is running: <code>uvicorn main:app --reload --host 0.0.0.0 --port 8000</code></div>
         <div style="height:6px"></div>
         <div class="small">2) If integrating Twilio later, run <code>ngrok http 8000</code> and map webhook to <code>/voice</code>.</div>
       </div>
@@ -416,7 +416,7 @@ async function refreshMeta(){
 /* ======== initial health check ======== */
 (async ()=>{
   const ok = await checkBackend();
-  if(!ok) addMessage('Backend offline: start uvicorn ivr_simulator_backend:app --reload','System');
+  if(!ok) addMessage('Backend offline: start uvicorn main:app --reload --host 0.0.0.0 --port 8000','System');
   setInterval(refreshMeta,5000);
 })();
 
